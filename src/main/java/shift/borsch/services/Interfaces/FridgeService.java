@@ -1,7 +1,7 @@
-package borsch.services.Interfaces;
+package shift.borsch.services.Interfaces;
 
-import borsch.entities.data.ProductByFridgeData;
-import borsch.entities.enums.StateByProduct;
+import shift.borsch.entities.data.ProductByFridgeData;
+import shift.borsch.entities.enums.StateByProduct;
 
 import java.util.List;
 

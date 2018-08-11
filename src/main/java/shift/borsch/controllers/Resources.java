@@ -1,6 +1,6 @@
-package borsch.controllers;
+package shift.borsch.controllers;
 
-class Resources {
+public class Resources {
   static final String ROOT_PREFIX = "/";
   static final String USER_PREFIX = "/user/";
   static final String FOOD_PREFIX = "/food/";

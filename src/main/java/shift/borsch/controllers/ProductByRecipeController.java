@@ -1,10 +1,10 @@
-package borsch.controllers;
+package shift.borsch.controllers;
 
-import borsch.entities.data.ProductByRecipeData;
-import borsch.entities.data.UserInfoData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import borsch.services.Interfaces.ProductByRecipeService;
+import shift.borsch.services.Interfaces.ProductByRecipeService;
+import shift.borsch.entities.data.ProductByRecipeData;
+import shift.borsch.entities.data.UserInfoData;
 
 import java.util.List;
 

@@ -1,20 +1,20 @@
-package borsch.services.classes;
+package shift.borsch.services.classes;
 
-import borsch.entities.Food;
-import borsch.entities.ProductByFridge;
-import borsch.entities.ProductByRecipe;
-import borsch.entities.UserInfo;
-import borsch.entities.data.ProductByFridgeData;
-import borsch.entities.enums.StateByProduct;
-import borsch.entities.enums.StateRecipe;
-import borsch.repositories.FoodRepository;
-import borsch.repositories.ProductByFridgeRepository;
-import borsch.repositories.ProductByRecipeRepository;
-import borsch.repositories.UserInfoRepository;
-import borsch.services.Interfaces.FridgeService;
+import shift.borsch.entities.Food;
+import shift.borsch.entities.ProductByFridge;
+import shift.borsch.entities.ProductByRecipe;
+import shift.borsch.entities.UserInfo;
+import shift.borsch.entities.data.ProductByFridgeData;
+import shift.borsch.entities.enums.StateByProduct;
+import shift.borsch.entities.enums.StateRecipe;
+import shift.borsch.repositories.FoodRepository;
+import shift.borsch.repositories.ProductByFridgeRepository;
+import shift.borsch.repositories.ProductByRecipeRepository;
+import shift.borsch.repositories.UserInfoRepository;
+import shift.borsch.services.Interfaces.FridgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import borsch.services.Interfaces.ProductByRecipeService;
+import shift.borsch.services.Interfaces.ProductByRecipeService;
 
 import java.util.ArrayList;
 import java.util.List;

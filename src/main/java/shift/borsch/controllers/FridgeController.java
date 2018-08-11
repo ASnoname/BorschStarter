@@ -1,9 +1,10 @@
-package borsch.controllers;
+package shift.borsch.controllers;
 
-import borsch.entities.data.ProductByFridgeData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import borsch.services.Interfaces.FridgeService;
+import shift.borsch.entities.enums.StateByProduct;
+import shift.borsch.services.Interfaces.FridgeService;
+import shift.borsch.entities.data.ProductByFridgeData;
 
 import java.util.List;
 
@@ -60,5 +61,12 @@ public class FridgeController {
     BaseResponse deleteAllProduct(@PathVariable(name = "idUser") Long id) {
 
         return new BaseResponse(fridgeService.deleteAllProductByFridge(id));
+    }
+
+    @PatchMapping(FRIDGE_PATH + "{id}" + "/state/{newState}")
+    public @ResponseBody
+    BaseResponse changeState(@PathVariable(name = "id") Long id, @PathVariable(name = "idUser") Long idUser, @PathVariable(name = "newState") StateByProduct newState) {
+
+        return new BaseResponse<>(fridgeService.changeStateByProduct(idUser, id, newState));
     }
 }

@@ -1,11 +1,11 @@
-package borsch.services.classes;
+package shift.borsch.services.classes;
 
-import borsch.entities.Food;
-import borsch.entities.data.FoodData;
-import borsch.repositories.FoodRepository;
-import borsch.services.Interfaces.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import shift.borsch.entities.Food;
+import shift.borsch.entities.data.FoodData;
+import shift.borsch.repositories.FoodRepository;
+import shift.borsch.services.Interfaces.FoodService;
 
 import java.util.ArrayList;
 import java.util.List;

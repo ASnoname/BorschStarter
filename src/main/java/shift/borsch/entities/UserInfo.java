@@ -1,8 +1,8 @@
-package borsch.entities;
+package shift.borsch.entities;
 
-import borsch.entities.data.UserInfoData;
-import borsch.entities.enums.StateByProduct;
 import lombok.*;
+import shift.borsch.entities.data.UserInfoData;
+import shift.borsch.entities.enums.StateByProduct;
 
 import javax.persistence.*;
 import java.io.Serializable;

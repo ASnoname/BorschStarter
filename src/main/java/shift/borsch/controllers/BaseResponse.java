@@ -1,4 +1,4 @@
-package borsch.controllers;
+package shift.borsch.controllers;
 
 import lombok.Data;
 

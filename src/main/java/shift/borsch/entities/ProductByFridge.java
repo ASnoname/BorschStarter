@@ -1,7 +1,8 @@
-package borsch.entities;
+package shift.borsch.entities;
 
-import borsch.entities.data.ProductByFridgeData;
 import lombok.*;
+import shift.borsch.entities.data.ProductByFridgeData;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;

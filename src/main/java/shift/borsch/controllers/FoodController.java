@@ -1,9 +1,9 @@
-package borsch.controllers;
+package shift.borsch.controllers;
 
-import borsch.entities.data.FoodData;
-import borsch.services.Interfaces.FoodService;
+import shift.borsch.services.Interfaces.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import shift.borsch.entities.data.FoodData;
 
 import java.util.List;
 

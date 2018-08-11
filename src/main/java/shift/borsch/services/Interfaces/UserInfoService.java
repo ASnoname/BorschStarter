@@ -1,8 +1,8 @@
-package borsch.services.Interfaces;
+package shift.borsch.services.Interfaces;
 
-import borsch.entities.data.RecipeData;
-import borsch.entities.data.UserInfoData;
-import borsch.entities.enums.StateByProduct;
+import shift.borsch.entities.data.RecipeData;
+import shift.borsch.entities.data.UserInfoData;
+import shift.borsch.entities.enums.StateByProduct;
 
 import java.util.List;
 import java.util.Map;

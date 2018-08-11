@@ -1,7 +1,8 @@
-package borsch.services.Interfaces;
+package shift.borsch.services.Interfaces;
 
-import borsch.entities.data.ProductByRecipeData;
-import borsch.entities.data.UserInfoData;
+import shift.borsch.entities.data.ProductByRecipeData;
+import shift.borsch.entities.data.UserInfoData;
+
 import java.util.List;
 
 public interface ProductByRecipeService {

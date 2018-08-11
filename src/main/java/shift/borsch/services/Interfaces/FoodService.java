@@ -1,6 +1,7 @@
-package borsch.services.Interfaces;
+package shift.borsch.services.Interfaces;
 
-import borsch.entities.data.FoodData;
+import shift.borsch.entities.data.FoodData;
+
 import java.util.List;
 
 public interface FoodService {

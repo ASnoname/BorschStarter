@@ -1,8 +1,8 @@
-package borsch.entities.data;
+package shift.borsch.entities.data;
 
-import borsch.entities.enums.TypeFood;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import shift.borsch.entities.enums.TypeFood;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

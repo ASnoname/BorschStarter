@@ -1,8 +1,8 @@
-package borsch.repositories;
+package shift.borsch.repositories;
 
-import borsch.entities.Food;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import shift.borsch.entities.Food;
 
 @Repository
 public interface FoodRepository extends CrudRepository<Food,Long> {

@@ -1,4 +1,4 @@
-package borsch.entities;
+package shift.borsch.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
