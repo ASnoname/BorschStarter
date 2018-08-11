@@ -44,6 +44,6 @@ public class UserInfo implements Serializable {
     @Column(name = "state")
     private Map<Long, StateByProduct> stateByProductMap;
 
-    @OneToOne
+    @JoinTable
     private UserInfoData userInfoData;
 }

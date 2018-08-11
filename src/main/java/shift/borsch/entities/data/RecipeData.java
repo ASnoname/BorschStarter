@@ -5,13 +5,11 @@ import lombok.NoArgsConstructor;
 import shift.borsch.entities.enums.StateRecipe;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 
 @NoArgsConstructor
 @Data
-@Entity
 @Table(name = "RecipeData")
 public class RecipeData implements Serializable {
 

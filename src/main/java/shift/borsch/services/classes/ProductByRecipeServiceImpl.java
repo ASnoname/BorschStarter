@@ -73,7 +73,7 @@ public class ProductByRecipeServiceImpl implements ProductByRecipeService {
         }
     }
 
-    private void sendInvite(ProductByRecipeData productByRecipeData, Food food, ProductByRecipe finalProductByRecipe) {
+    private void sendInvite(ProductByRecipeData productByRecipeData, Food food, ProductByRecipe productByRecipe) {
 
         food
                 .getProducts()
@@ -86,7 +86,7 @@ public class ProductByRecipeServiceImpl implements ProductByRecipeService {
                         .getFridge()
                         .getUserInfo()
                         .getStateByProductMap()
-                        .put(finalProductByRecipe
+                        .put(productByRecipe
                                 .getId(), StateByProduct.WAITING));
     }
 
@@ -261,16 +261,113 @@ public class ProductByRecipeServiceImpl implements ProductByRecipeService {
     @Override
     public ProductByRecipeData updateProductByRecipe(Long idProductByRecipe, ProductByRecipeData newProductByRecipeData) {
 
-        return null;
+        if (newProductByRecipeData == null){
+            return null;
+        }
+
+        Optional<ProductByRecipe> productByRecipe;
+
+        try {
+            productByRecipe = productByRecipeRepository.findById(idProductByRecipe);
+        }
+        catch (IllegalArgumentException e){
+            return null;
+        }
+
+        if (productByRecipe.isPresent()){
+
+            clearOffers(productByRecipe.get());
+            clearFinalUserInfo(idProductByRecipe);
+
+            newProductByRecipeData.setId(productByRecipe.get().getId());
+
+            productByRecipe.get().setProductByRecipeData(newProductByRecipeData);
+
+            productByRecipeRepository.save(productByRecipe.get());
+
+            return productByRecipe.get().getProductByRecipeData();
+        }
+        else {
+            return null;
+        }
+    }
+
+    private void clearOffers(ProductByRecipe productByRecipe) {
+
+        productByRecipe
+                .getOffers()
+                .parallelStream()
+                .forEach(u -> u
+                        .getStateByProductMap()
+                        .remove(productByRecipe
+                                .getId()));
+
+        sendInvite(productByRecipe.getProductByRecipeData(),productByRecipe.getFood(),productByRecipe);
     }
 
     @Override
     public Boolean clearFinalUserInfo(Long idProductByRecipe) {
-        return null;
+
+        Optional<ProductByRecipe> productByRecipe;
+
+        try {
+            productByRecipe = productByRecipeRepository.findById(idProductByRecipe);
+        }
+        catch (IllegalArgumentException e){
+            return false;
+        }
+
+        if (productByRecipe.isPresent()){
+
+            productByRecipe
+                    .get()
+                    .getUserInfo()
+                    .getStateByProductMap()
+                    .put(idProductByRecipe,StateByProduct.NOTCONFIRMED);
+
+            productByRecipe
+                    .get()
+                    .setUserInfo(null);
+
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
     public UserInfoData changeFinalUserInfo(Long idProductByRecipe, Long newIdUserInfo) {
-        return null;
+
+        Optional<ProductByRecipe> productByRecipe;
+        Optional<UserInfo> userInfo;
+
+        try {
+            productByRecipe = productByRecipeRepository.findById(idProductByRecipe);
+            userInfo = userInfoRepository.findById(newIdUserInfo);
+        }
+        catch (IllegalArgumentException e){
+            return null;
+        }
+
+        if (productByRecipe.isPresent() && userInfo.isPresent()){
+
+            clearFinalUserInfo(idProductByRecipe);
+
+            userInfo
+                    .get()
+                    .getStateByProductMap()
+                    .put(idProductByRecipe,StateByProduct.ACCEPTED);
+
+            productByRecipe
+                    .get()
+                    .setUserInfo(userInfo
+                            .get());
+
+            return userInfo.get().getUserInfoData();
+        }
+        else {
+            return null;
+        }
     }
 }

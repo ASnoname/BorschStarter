@@ -29,6 +29,6 @@ public class Food implements Serializable {
     @Column(name = "products")
     private List<ProductByFridge> products;
 
-    @OneToOne
+    @JoinTable
     private FoodData foodData;
 }

@@ -35,6 +35,6 @@ public class ProductByFridge implements Serializable {
     @JoinColumn(name = "productByRecipes")
     private List<ProductByRecipe> productByRecipes;
 
-    @OneToOne
+    @JoinTable
     private ProductByFridgeData productByFridgeData;
 }

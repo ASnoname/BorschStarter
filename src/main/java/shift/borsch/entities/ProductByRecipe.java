@@ -41,6 +41,6 @@ public class ProductByRecipe implements Serializable {
     @Column(name = "userInfoId")
     private List<UserInfo> offers;
 
-    @OneToOne
+    @JoinTable
     private ProductByRecipeData productByRecipeData;
 }

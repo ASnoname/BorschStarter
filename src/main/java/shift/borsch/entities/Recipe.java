@@ -33,6 +33,6 @@ public class Recipe implements Serializable {
     @Column(name = "product")
     private List<ProductByRecipe> products;
 
-    @OneToOne
+    @JoinTable
     private RecipeData recipeData;
 }
