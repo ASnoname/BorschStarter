@@ -3,14 +3,19 @@ package shift.borsch.entities.data;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @NoArgsConstructor
 @Data
+@Entity
 @Table(name = "ProductByFridgeData")
 public class ProductByFridgeData implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idData",unique = true)
+    private long idData;
 
     @Column(name = "id",unique = true)
     private Long id;

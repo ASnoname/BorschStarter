@@ -4,16 +4,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import shift.borsch.entities.enums.TypeFood;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @NoArgsConstructor
 @Data
+@Entity
 @Table(name = "FoodData")
 public class FoodData implements Serializable {
 
-    @Column(name = "id",unique = true)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idData",unique = true)
+    private long idData;
+
+    @Column(name = "idFood",unique = true)
     private Long id;
 
     @Column(name = "name",unique = true,nullable = false)
