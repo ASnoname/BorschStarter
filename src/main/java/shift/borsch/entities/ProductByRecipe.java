@@ -1,7 +1,6 @@
 package shift.borsch.entities;
 
 import lombok.*;
-import shift.borsch.entities.data.ProductByRecipeData;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,14 +32,17 @@ public class ProductByRecipe implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userInfoId")
-    private UserInfo userInfo;
+    private User user;
 
     @OneToMany(fetch = FetchType.LAZY)
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "offers")
     @Column(name = "userInfoId")
-    private List<UserInfo> offers;
+    private List<User> offers;
 
-    @OneToOne
-    private ProductByRecipeData productByRecipeData;
+    @Column(name = "name",unique = true)
+    private String name;
+
+    @Column(name = "Amount")
+    private Double amount;
 }

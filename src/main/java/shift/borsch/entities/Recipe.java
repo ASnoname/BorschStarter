@@ -1,7 +1,7 @@
 package shift.borsch.entities;
 
 import lombok.*;
-import shift.borsch.entities.data.RecipeData;
+import shift.borsch.entities.enums.StateRecipe;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,6 +16,7 @@ public class Recipe implements Serializable {
 
     {
         this.products = new ArrayList<>();
+        this.state = StateRecipe.ACTIVE;
     }
 
     @Id
@@ -25,7 +26,7 @@ public class Recipe implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userInfoId")
-    private UserInfo userInfo;
+    private User user;
 
     @OneToMany(fetch = FetchType.LAZY)
     @ElementCollection(fetch = FetchType.LAZY)
@@ -33,6 +34,9 @@ public class Recipe implements Serializable {
     @Column(name = "product")
     private List<ProductByRecipe> products;
 
-    @OneToOne
-    private RecipeData recipeData;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "state",nullable = false)
+    private StateRecipe state;
 }

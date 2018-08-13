@@ -24,8 +24,8 @@ public class Fridge implements Serializable {
     private long id;
 
     @OneToOne
-    @JoinColumn(name = "userInfoId")
-    UserInfo userInfo;
+    @JoinColumn(name = "userId")
+    User user;
 
     @OneToMany(fetch = FetchType.LAZY)
     @ElementCollection(fetch = FetchType.LAZY)

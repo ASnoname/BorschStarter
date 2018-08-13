@@ -1,7 +1,7 @@
 package shift.borsch.entities;
 
 import lombok.*;
-import shift.borsch.entities.data.FoodData;
+import shift.borsch.entities.enums.TypeFood;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,6 +16,7 @@ public class Food implements Serializable {
 
     {
         this.products = new ArrayList<>();
+        this.category = TypeFood.Element;
     }
 
     @Id
@@ -29,6 +30,9 @@ public class Food implements Serializable {
     @Column(name = "products")
     private List<ProductByFridge> products;
 
-    @OneToOne
-    private FoodData foodData;
+    @Column(name = "name",unique = true,nullable = false)
+    private String name;
+
+    @Column(name = "category",nullable = false)
+    private TypeFood category;
 }
