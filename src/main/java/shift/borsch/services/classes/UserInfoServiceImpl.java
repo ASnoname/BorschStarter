@@ -21,6 +21,7 @@
 //    }
 //
 //    @Override
+//    @Transactional
 //    public UserInfoData createUserInfo(UserInfoData userInfoData) {
 //
 //        if (userInfoData != null){

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import shift.borsch.entities.enums.Role;
 import shift.borsch.entities.enums.StateByProduct;
 
 import javax.persistence.*;
@@ -30,7 +31,7 @@ public class User implements Serializable {
     private Long id;
 
     @Column(name = "login")
-    private String login;
+    private String userName;
 
     @Column(name = "password")
     private String password;

@@ -2,7 +2,7 @@ package shift.borsch.services.Interfaces;
 
 public interface SecurityService {
 
-    String findLoggedInUsername();
+    String findLoggedInUserName();
 
     void autoLogin(String username, String password);
 }
