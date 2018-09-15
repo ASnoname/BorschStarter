@@ -16,7 +16,9 @@ public class JacksonConfiguration implements WebMvcConfigurer {
 
   @Override
   public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+
     for (HttpMessageConverter<?> httpConverter : converters) {
+
       if (httpConverter instanceof MappingJackson2HttpMessageConverter) {
 
         ObjectMapper mapper = new ObjectMapper();
